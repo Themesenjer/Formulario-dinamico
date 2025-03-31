@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Agrega tus productos</h2>
+  
+    <form [formGroup]="productForm" (ngSubmit)="submitForm()">
+      <div formArrayName="products">
+        <div *ngFor="let product of products.controls; let i = index" class="product-row">
+          <div [formGroupName]="i">
+            <input type="text" placeholder="Nombre del producto" formControlName="name" />
+            <input type="number" placeholder="Precio" formControlName="price" />
+            <input type="number" placeholder="Cantidad" formControlName="quantity" />
+            <button type="button" (click)="removeProduct(i)">❌</button>
+          </div>
+        </div>
+      </div>
+  
+      <button type="button" (click)="addProduct()">➕ Agregar Producto</button>
+      <button type="submit" [disabled]="products.length === 0">📤 Enviar</button>
+    </form>
+  </div>
+  

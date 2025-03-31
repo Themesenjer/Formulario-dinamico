@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [ProductFormComponent], // Agregar aquí
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'dynamic-form';
